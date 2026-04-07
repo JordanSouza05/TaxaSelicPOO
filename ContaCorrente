@@ -1,0 +1,27 @@
+public class Conta {
+
+    private double saldo;
+
+    public void depostita(double x) {
+        if (x > 0) {
+            this.saldo += x;
+        } else {
+            System.out.println("Valor inválido.");
+        }
+    }
+
+    public boolean retira(double x) {
+        if (this.saldo >= x && x > 0) {
+            this.saldo -= x;
+            return true;
+        } else {
+            System.out.println("Saldo insuficiente ou valor inválido.");
+            return false;
+        }
+    }
+
+    public void atualiza(double taxaSelic) {
+        this.saldo += this.saldo * taxaSelic;
+    }
+
+}
