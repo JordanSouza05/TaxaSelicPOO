@@ -1,27 +1,8 @@
-public class Conta {
-
-    private double saldo;
-
-    public void depostita(double x) {
-        if (x > 0) {
-            this.saldo += x;
-        } else {
-            System.out.println("Valor inválido.");
-        }
-    }
-
-    public boolean retira(double x) {
-        if (this.saldo >= x && x > 0) {
-            this.saldo -= x;
-            return true;
-        } else {
-            System.out.println("Saldo insuficiente ou valor inválido.");
-            return false;
-        }
-    }
-
+public class ContaCorrente extends Conta {
+    @Override
     public void atualiza(double taxaSelic) {
-        this.saldo += this.saldo * taxaSelic;
+        double taxaDobrada = taxaSelic * 2;
+        super.atualiza(taxaDobrada);
+        this.retira(15.0);
     }
-
 }
