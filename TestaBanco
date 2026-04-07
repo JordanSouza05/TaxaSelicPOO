@@ -1,0 +1,26 @@
+public class TestaBanco {
+    public static void main(String[] args) {
+        Banco meuBanco = new Banco();
+        AtualizadorDeContas adc = new AtualizadorDeContas(0.01);
+
+        Conta c = new Conta();
+        ContaCorrente cc = new ContaCorrente();
+        ContaPoupanca cp = new ContaPoupanca();
+
+        c.deposita(1000);
+        cc.deposita(1000);
+        cp.deposita(1000);
+
+        meuBanco.adiciona(c);
+        meuBanco.adiciona(cc);
+        meuBanco.adiciona(cp);
+
+        for (int i = 0; i < meuBanco.pegaTotalDeContas(); i++) {
+            Conta contaAtual = meuBanco.pega(i);
+            adc.roda(contaAtual);
+            System.out.println("----------");
+        }
+
+        System.out.println("Saldo Total do Banco: " + adc.getSaldoTotal());
+    }
+}
