@@ -1,0 +1,24 @@
+class Banco {
+    private Conta[] contas;
+    private int proximoIndice;
+
+    public Banco() {
+        this.contas = new Conta[10];
+        this.proximoIndice = 0;
+    }
+
+    public void adiciona(Conta c) {
+        if (this.proximoIndice < this.contas.length) {
+            this.contas[this.proximoIndice] = c;
+            this.proximoIndice++;
+        }
+    }
+
+    public Conta pega(int x) {
+        return this.contas[x];
+    }
+
+    public int pegaTotalDeContas() {
+        return this.proximoIndice;
+    }
+}
